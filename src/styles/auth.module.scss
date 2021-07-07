@@ -6,14 +6,14 @@
   aside {
     flex: 7;
 
-    background: #835afd;
+    background: var(--violet-200);
     color: #FFF;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    padding: 120px 80px;
+    padding: 6rem 5.5rem;
 
     img {
       max-width: 320px;
@@ -29,7 +29,7 @@
       font-size: 24px;
       line-height: 32px;
       margin-top: 16px;
-      color: #f8f8f8;
+      color: var(--white-color-100);
     }
   }
 
@@ -44,6 +44,15 @@
   }
 }
 
+.pushToMain {
+  background: transparent;
+  border: 0;
+  color: var(--background-light);
+  font-size: 20px;
+  font-weight: 100;
+  display: none;
+}
+
 .mainContent {
   display: flex;
   flex-direction: column;
@@ -56,19 +65,20 @@
     align-items: center;
   }
 
-  h2 {
+  > h2 {
     font-size: 24px;
     margin: 64px 0 24px;
     font-family: "Poppins", sans-serif;
   }
 
-  form {
+  > form {
     input {
       height: 50px;
       border-radius: 8px;
       padding: 0 16px;
-      background: #FFF;
+      background: var(--background);
       border: 1px solid #a8a8b3;
+      color: var(--white-color-300);
     }
 
     button {
@@ -80,13 +90,13 @@
     }
   }
 
-  p {
+  > p {
     font-size: 14px;
-    color: #737380;
+    color: var(--white-color-300);
     margin-top: 16px;
 
     a {
-      color: #e669f9;
+      color: var(--pink-100);
     }
   }
 }
@@ -96,8 +106,8 @@
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #ea4335;
-  color: #FFF;
+  background: var(--google-button);
+  color: var(--background-light);
 
   display: flex;
   justify-content: center;
@@ -119,7 +129,7 @@
 
 .separator {
   font-size: 14px;
-  color: #a8a8b3;
+  color: var(--white-color-300);
 
   margin: 32px 0;
   display: flex;
@@ -129,7 +139,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: var(--white-color-300);
     margin-right: 16px;
   }
 
@@ -137,8 +147,100 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: var(--white-color-300);
     margin-left: 16px;
   }
 }
 
+.showMyRooms {
+  font-size: small;
+  width: fit-content;
+  margin: 0 auto;
+  padding: .5rem;
+
+  border: 0;
+  background-color: transparent;
+  color: var(--white-color-300);
+  cursor: pointer;
+  transition: .05s;
+
+  &:hover {
+    color: var(--white-color-400);
+    font-weight: 500;
+  }
+}
+
+@media(max-width: 650px) {
+  .pageAuth {
+    flex-direction: column;
+    
+
+    aside {
+      padding: 4rem 2rem;
+      background-image: linear-gradient(var(--violet-200) 99%, var(--background), );
+      align-items: center;
+    }
+  }
+}
+
+@media(max-width: 580px) {
+  .pageAuth {
+
+    aside {
+      strong {
+        font-size: 30px;
+        line-height: 30px;
+        margin-top: 20px
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media(max-width: 490px) {
+  .pageAuth {
+    
+    aside {
+      padding: 4.5rem 1rem;
+
+      strong {
+        font-size: 20px;
+        line-height: 21px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 16px;
+        margin-top: 8px;
+
+      }
+    }
+
+    main {
+      padding: .5rem 1rem;
+    }
+  }
+
+  .createRoom {
+    margin-top: 44px;
+    height: 50px;
+    border-radius: 8px;
+
+    div {
+      margin-right: 8px;
+    }
+  }
+}
+
+@media(max-width: 335px) and (max-height: 586px) {
+  .pageAuth {
+    aside {
+      padding: 3.4rem 1rem;
+    }
+  }
+}

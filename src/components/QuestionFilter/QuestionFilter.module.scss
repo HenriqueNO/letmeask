@@ -1,0 +1,16 @@
+.container {
+  button {
+    border: 0;
+    margin: 0 .5rem;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--white-color-400);
+
+    transition: .1s;
+  }
+
+  button:hover {
+    font-weight: 500;
+    color: var(--white-color-400);
+  }
+}

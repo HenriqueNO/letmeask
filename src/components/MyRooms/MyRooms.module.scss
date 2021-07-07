@@ -1,0 +1,78 @@
+.roomsContainer {
+  border: 5px;
+
+  > div:first-child {
+    display: flex;
+
+    button {
+      flex: 1;
+      border: 0;
+      border-radius: 50px;
+      font-size: 0;
+      float: left;
+
+      &:hover {
+        filter: brightness(90%);
+      }
+    }
+
+    h1 {
+      flex: 5;
+    }
+  }
+  
+  > div:last-child {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 25vh;
+    padding: .2rem;
+    width: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+  
+    /* Track */
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px var(--white-color-300); 
+      border-radius: 100px;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--violet-200); 
+      border-radius: 10px;
+    }
+  
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--violet-300); 
+    }
+  }
+
+}
+
+.roomIndex {
+  background-color: var(--background-light);
+  margin: 0;
+  padding: .4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & + .roomIndex {
+    margin-top: 5px;
+  }
+
+  h2 {
+    font-size: medium;
+    text-transform: capitalize;
+  }
+
+  p {
+    font-size: small;
+    font-weight: 600;
+    color: var(--white-color-300);
+  }
+}

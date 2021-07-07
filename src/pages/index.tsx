@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react';
-import { Button } from '../components/Button/Button';
+import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 import { database } from '../services/firebase';
 
@@ -53,6 +53,7 @@ export default function Home() {
         />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
+        <button className={styles.pushToMain}>&dArr;</button>
       </aside>
 
       <main>

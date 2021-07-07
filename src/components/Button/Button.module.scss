@@ -2,8 +2,8 @@
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
-  color: #FFF;
+  background: var(--violet-200);
+  color: #fff;
   padding: 0 32px;
 
   display: flex;
@@ -20,9 +20,9 @@
   }
 
   &.outlined {
-    background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    background: var(--background-light);
+    border: 1px solid var(--violet-200);
+    color: var(--violet-200);
   }
 
   &:not(:disabled):hover {

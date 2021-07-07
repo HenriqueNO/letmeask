@@ -14,7 +14,7 @@ export function RoomCode(props: RoomCodeProps) {
   }
 
   return (
-    <button className={styles.roomCode} onClick={copyRoomCodeToClipboard}>
+    <button title="Clique para copiar o código" className={styles.roomCode} onClick={copyRoomCodeToClipboard}>
       <div>
         <Image
           src="/images/copy.svg"

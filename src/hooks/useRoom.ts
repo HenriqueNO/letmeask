@@ -74,9 +74,13 @@ export function useRoom(roomId: string) {
       }
     })
 
+    
+
     return () => {
       roomRef.off('value')
     }
+    
+    
 
   }, [roomId, user?.id, isDescendingFilter, isCrescentFilter])
 

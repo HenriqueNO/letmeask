@@ -15,6 +15,7 @@ export default function Room() {
   const { user, signInWithGoogle } = useAuth()
   const [roomId, setRoomId] = useState('')
   const [newQuestion, setNewQuestion] = useState('')
+  const [lengthQuestionValue, setLengthQuestionValue] = useState<number>(250)
   const { title, questions, descendingFilter, crescentFilter} = useRoom(roomId)
   const {toggleTheme, theme} = useContext(ThemeContext)
 
@@ -22,6 +23,18 @@ export default function Room() {
     const urlParams = new URLSearchParams(window.location.href).values().next().value
     setRoomId(urlParams)
   }, [])
+
+  useEffect(() => {
+    const authorRef = database.ref(`rooms/${roomId}/lengthQuestion`)
+
+    authorRef.on('value', room => {
+      setLengthQuestionValue(room.val())
+    })
+
+    return () => {
+      authorRef.off('value')
+    }
+  }, [roomId])
 
 
   async function handleCreateNewQuestion(event: FormEvent) {
@@ -90,8 +103,8 @@ export default function Room() {
       </header>
 
       <main>
-        <div className="room-title">
-          <h1>Sala {title}</h1>
+        <div className={styles.roomTitle}>
+          <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
@@ -100,6 +113,7 @@ export default function Room() {
             placeholder="O que deseja pegurtar?"
             onChange={event => setNewQuestion(event.target.value)}
             value={newQuestion}
+            maxLength={lengthQuestionValue}
           />
 
           <div className={styles.formFooter}>

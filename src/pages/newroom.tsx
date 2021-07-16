@@ -27,7 +27,7 @@ export default function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user.id,
-
+      lengthQuestion: 250,
     })
 
     router.push(`/admin/room?id=${firebaseRoom.key}`)

@@ -23,7 +23,11 @@ export function RoomCode(props: RoomCodeProps) {
           height={20}
         />
       </div>
-      <span>Sala #{props.code}</span>
+      <p>Código da sala:
+        <span>
+        #{props.code}
+        </span>
+      </p>
     </button>
   )
 }

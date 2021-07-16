@@ -1,0 +1,64 @@
+.overlay {
+  background: var(--background-light);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.container {
+  background: var(--background);
+  color: var(--white-color-500);
+  width: 100%;
+  max-width: 400px;
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 60px rdba(0, 0, 0.86);
+  text-align: center;
+  position: relative;
+}
+
+.caracterConfigContainer {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: small;
+      font-weight: 500;
+    }
+
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      
+      p {
+        margin-left: 10px;
+      }
+    }
+
+    div:last-child {
+      display: flex;
+      justify-content: space-evenly;
+
+      span {
+        font-size: small;
+        font-weight: 500;
+      }
+
+      input {
+        width: 80%;
+      }
+    }
+
+    p {
+      font-size: smaller;
+      opacity: 80%;
+    }
+}

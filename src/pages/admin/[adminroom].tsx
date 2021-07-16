@@ -8,6 +8,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
 import { QuestionFilter } from '../../components/QuestionFilter';
+import { RoomSettings } from '../../components/RoomSettings';
 
 import styles from '../../styles/room.module.scss'
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -35,8 +36,6 @@ export default function AdminRoom() {
       authorRef.off('value')
     }
   }, [roomId])
-  
-
 
   async function handleDeleteQuestion(questionId: string) {
     if(window.confirm('Tem certeza que você deseja excluir esta pergunta?')) {
@@ -103,9 +102,12 @@ export default function AdminRoom() {
       </header>
 
       <main>
-        <div className="room-title">
-          <h1>Sala {title}</h1>
-          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+        <div className={styles.headerRoomAdminContainer}>
+          <div className={styles.roomTitle}>
+            <h1>Sala: {title}</h1>
+            {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+          </div>
+          <RoomSettings roomId={roomId}/>
         </div>
 
         <QuestionFilter

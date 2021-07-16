@@ -50,7 +50,7 @@ main {
     h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 24px;
-      color: #29292e;
+      color: var(--white-color-500);
     }
 
     span {
@@ -58,7 +58,7 @@ main {
       background: var(--pink-100);
       border-radius: 9999px;
       padding: 8px 16px;
-      color: var(--background-light);
+      color: #fff;
       font-weight: 500;
       font-size: 14px;
     }
@@ -173,6 +173,30 @@ main {
 }
 
 // Admin room
+
+.headerRoomAdminContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > button {
+    background-color: var(--background-question-answered);
+    color: var(--white-color-500);
+
+    border-radius: 25px;
+    border: 0;
+    padding: .5rem;
+    font-size: 0;
+
+    svg {
+      fill: var(--white-color-500)
+    }
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+}
 
 .likes {
   font-size: x-small;

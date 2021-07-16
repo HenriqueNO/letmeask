@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 export const ThemeContext = createContext({} as any);
 
 export function ThemeContextProvider({children}) {
-  const [theme, setTheme] = useState(dark)
+  const [theme, setTheme] = useState(Cookies.get('lastTheme') === 'light' ? light : dark)
 
   function toggleTheme() {
     setTheme(theme.title === 'light' ? dark : light)
@@ -15,7 +15,7 @@ export function ThemeContextProvider({children}) {
 
   useEffect(() => {
     Cookies.set('lastTheme', theme.title)
-  }, [theme])
+  }, [theme.title])
 
   return(
     <ThemeContext.Provider value={{toggleTheme, theme}}>

@@ -23,7 +23,6 @@ export function MyRooms({ setShowMyRooms }) {
     roomRef.once('value', room => {
 
       const roomInfo: any = Object.entries(room.val())
-      console.log(roomInfo)
 
       for (var i in roomInfo) {
         if (roomInfo[i][1].authorId === user?.id) {
@@ -37,9 +36,6 @@ export function MyRooms({ setShowMyRooms }) {
       }
     })
   }, [user?.id])
-
-  console.log(rooms)
-
 
   return (
     <div className={styles.roomsContainer}>

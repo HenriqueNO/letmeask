@@ -5,11 +5,11 @@ export default {
   title: 'dark',
 
   colors: {
-    background: shade(0.8, '#f8f8f8'),
-    background_light: shade(0.6, '#fff'),
-    background_question: shade(0.6, '#fefefe'),
-    background_question_highlight: shade(0.6, '#f4f0ff'),
-    background_question_answered: shade(0.6, '#dbdcdd'),
+    background_100: shade(0.65, '#fff'),
+    background_200: shade(0.75, '#fefefe'),
+    background_300: shade(0.8, '#f8f8f8'),
+    background_400: shade(0.8, '#f4f0ff'),
+    background_500: shade(0.8, '#dbdcdd'),
 
     google_button: shade(0.1, '#ea4335'),
 

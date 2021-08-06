@@ -1,5 +1,5 @@
 .question {
-  background-color: var(--background-question);
+  background-color: var(--background-200);
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0 , .04);
   padding: 24px;
@@ -13,7 +13,7 @@
 
   
   &.highlighted {
-    background: var(--background-question-highlight);
+    background: var(--background-500);
     border: 1px solid var(--violet-300);
     
     footer .userInfo span {
@@ -22,7 +22,7 @@
   }
   
   &.answered {
-    background: var(--background-question-answered);
+    background: var(--background-400);
     border: 1px solid rgb(0, 155, 0);
   }
 
@@ -49,7 +49,7 @@
       span {
         margin-left: 8px;
         color: var(--white-color-300);
-        font-size: 14px;
+        font-size: .8rem;
       }
     }
 

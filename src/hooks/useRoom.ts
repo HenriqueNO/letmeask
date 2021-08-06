@@ -32,20 +32,7 @@ export function useRoom(roomId: string) {
   const { user } = useAuth()
   const [questions, setQuestions] = useState<QuestionType[]>([])
   const [title, setTitle] = useState('')
-  const [isDescendingFilter, setIsDescendingFilter] = useState(false)
-  const [isCrescentFilter, setIsCrescentFilter] = useState(false)
-
-  function descendingFilter() {
-    setIsDescendingFilter(isDescendingFilter === true ? false : true)
-    setQuestions(questions.sort((a, b) => b.likeCount - a.likeCount))
-    setIsCrescentFilter(false)
-  }
-
-  function crescentFilter() {
-    setIsCrescentFilter(isCrescentFilter === true ? false : true)
-    setQuestions(questions.sort((a, b) => a.likeCount - b.likeCount))
-    setIsDescendingFilter(false)
-  }
+  const [lengthQuestion, setLengthQuestion] = useState(undefined)
   
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`)
@@ -67,22 +54,16 @@ export function useRoom(roomId: string) {
       })
 
       setTitle(databaseRoom.title)
-      console.log(!isCrescentFilter, !isDescendingFilter)
 
-      if(!isCrescentFilter && !isDescendingFilter) {
-        setQuestions(parsedQuestions)
-      }
+      setLengthQuestion(databaseRoom.lengthQuestion)
+
+      setQuestions(parsedQuestions)
     })
-
-    
 
     return () => {
       roomRef.off('value')
     }
-    
-    
+  }, [roomId, user?.id])
 
-  }, [roomId, user?.id, isDescendingFilter, isCrescentFilter])
-
-  return { questions, title, descendingFilter, crescentFilter}
+  return { questions, title, lengthQuestion}
 }

@@ -1,10 +1,11 @@
 .button {
-  height: 50px;
+  max-height: 2.5rem;
+  min-height: 2rem;
   border-radius: 8px;
   font-weight: 500;
   background: var(--violet-200);
   color: #fff;
-  padding: 0 32px;
+  padding: 0 .5rem;
 
   display: flex;
   justify-content: center;
@@ -20,7 +21,7 @@
   }
 
   &.outlined {
-    background: var(--background-light);
+    background: var(--background-200);
     border: 1px solid var(--violet-200);
     color: var(--violet-200);
   }

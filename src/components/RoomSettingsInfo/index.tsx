@@ -1,0 +1,44 @@
+import Image from 'next/image'
+import { useState } from 'react'
+import { useRoom } from '../../hooks/useRoom'
+import styles from './RoomSettingsInfo.module.scss'
+
+export function RoomSettingsInfo({room}) {
+  const [isOpenOverlay, setIsOpenOverlay] = useState(false)
+  const { lengthQuestion } = useRoom(room)
+
+  return (
+    <>
+      {
+      !isOpenOverlay
+        ? (
+          <button onClick={() => setIsOpenOverlay(!isOpenOverlay ? true : false)}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M13.25 7c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25zm10.75 5c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12zm-2 0c0-5.514-4.486-10-10-10s-10 4.486-10 10 4.486 10 10 10 10-4.486 10-10zm-13-2v2h2v6h2v-8h-4z" />
+              </svg>
+          </button>
+        )
+        : (
+          <div className={styles.overlay}>
+            <div className={styles.buttonExitOverlay}>
+              <button onClick={() => setIsOpenOverlay(false)}>
+                <Image
+                  src='/images/back-return.svg'
+                  alt='Voltar'
+                  width={15}
+                  height={15}
+                />
+              </button>
+            </div>
+            <div className={styles.container}>
+              <h1>Configurações da sala</h1>
+              <p>Limite de caracteres por pergunta: {lengthQuestion}</p>
+              <p>Limite de perguntas por usuário: {'3'}</p>
+            </div>
+          </div>
+          
+          )
+      }
+    </>
+  )
+}

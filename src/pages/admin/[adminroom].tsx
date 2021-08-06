@@ -19,7 +19,7 @@ export default function AdminRoom() {
   const [roomId, setRoomId] = useState('')
   const [authorId, setAuthorId] = useState(null)
   const { toggleTheme, theme } = useContext(ThemeContext)
-  const { title, questions, descendingFilter, crescentFilter } = useRoom(roomId)
+  const { title, questions } = useRoom(roomId)
   
   useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -63,7 +63,6 @@ export default function AdminRoom() {
     })
   }
   
-  console.log(authorId, user)
   if (user === undefined || authorId === null) {
     return (
       <h1>Carregando</h1>
@@ -85,6 +84,7 @@ export default function AdminRoom() {
             alt="letmeask"
             width={157}
             height={75}
+            objectFit="scale-down"
           />
           <div>
             <button onClick={toggleTheme}>
@@ -95,25 +95,23 @@ export default function AdminRoom() {
                 alt="tema claro"
               />
             </button>
-            <RoomCode code={roomId} />
+            <RoomCode code={roomId} admin={true}/>
             <Button isOutlined={true} onClick={handleEndRoom}>Encerrar sala</Button>
           </div>
         </div>
       </header>
 
-      <main>
-        <div className={styles.headerRoomAdminContainer}>
+      <main className={styles.mainContainer}>
+        <div className={styles.mainHeader}>
           <div className={styles.roomTitle}>
             <h1>Sala: {title}</h1>
             {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
           </div>
-          <RoomSettings roomId={roomId}/>
+          <div className={styles.roomInfo}>
+            <RoomSettings roomId={roomId} />
+          </div>
         </div>
 
-        <QuestionFilter
-          descendingFilter={descendingFilter}
-          crescentFilter={crescentFilter}
-        />
         <div className={styles.questionList}>
           {questions.map(question => {
             return (

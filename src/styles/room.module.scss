@@ -9,6 +9,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
 
       > img {
         max-height: 45px;
@@ -16,18 +17,17 @@
 
       > div {
         display: flex;
-        gap: 16px;
+        gap: .5rem;
 
-        button {
-          height: 40px;
-        }
-
-        button:first-child {
+        > button:first-child {
           border: 0;
-          border-radius: 50%;
-          width: 2.5rem;
+          border-radius: 8px;
+          max-width: 2.5rem;
+          min-width: 2rem;
+          padding: 10px;
           font-size: 0;
           transition: .2s;
+          
           background-color: var(--violet-200);
 
           &:hover {
@@ -42,25 +42,58 @@ main {
   max-width: 800px;
   margin: 0 auto;
 
-  .roomTitle {
-    margin: 32px 0 24px;
+  .mainHeader {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .roomTitle {
+    margin: .5rem 0 .2rem;
+    display: flex;
+    gap: 1rem;
+    
     align-items: center;
 
     h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 24px;
+      font-size: 1.5rem;
       color: var(--white-color-500);
     }
 
-    span {
-      margin-left: 16px;
+    > span {
       background: var(--pink-100);
       border-radius: 9999px;
-      padding: 8px 16px;
+      padding: .5rem 1rem;
       color: #fff;
       font-weight: 500;
-      font-size: 14px;
+      font-size: .8rem;
+      white-space: nowrap;
+      align-self: center;
+    }
+  }
+
+  .roomInfo {
+    display: flex;
+    align-items: center;
+
+    > button {
+      background-color: var(--background-200);
+      color: var(--white-color-500);
+
+      border-radius: 25px;
+      border: 0;
+      padding: .5rem;
+      font-size: 0;
+
+      svg {
+        fill: var(--white-color-500)
+      }
+
+      &:hover {
+        filter: brightness(90%);
+      }
     }
   }
 
@@ -68,13 +101,13 @@ main {
     textarea {
       width: 100%;
       border: 0;
-      padding: 16px;
-      border-radius: 8px;
-      background: var(--background-light);
+      padding: 1rem;
+      border-radius: .5rem;
+      background: var(--background-200);
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
       resize: vertical;
-      min-width: 130px;
-      max-height: 500px;
+      min-width: 13rem;
+      max-height: 15rem;
       color: var(--white-color-400);
 
       &::placeholder {
@@ -86,7 +119,7 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 16px;
+      margin-top: 1rem;
 
       .userInfo {
         display: flex;
@@ -99,15 +132,15 @@ main {
         }
 
         span {
-          margin-left: 8px;
+          margin-left: .5rem;
           color: var(--white-color-400);
           font-weight: 500;
-          font-size: 14px;
+          font-size: .8rem;
         }
       }
 
       > span {
-        font-size: 14px;
+        font-size: 1rem;
         color: var(--white-color-400);
         font-weight: 500;
 
@@ -116,7 +149,7 @@ main {
           border: 0;
           color: var(--violet-200);
           text-decoration: underline;
-          font-size: 14px;
+          font-size: .8rem;
           font-weight: 500;
           cursor: pointer;
         }
@@ -125,7 +158,7 @@ main {
   }
 
   .questionList {
-    margin: 32px 0 32px 0;
+    margin: 1.5rem 0 1rem 0;
     max-height: calc(100vh - 50vh);
     height: auto;
     overflow-y: auto;
@@ -149,7 +182,7 @@ main {
     }
     
     &::-webkit-scrollbar {
-      width: 4px;
+      width: .2rem;
     }
 
     /* Track */
@@ -174,32 +207,8 @@ main {
 
 // Admin room
 
-.headerRoomAdminContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  > button {
-    background-color: var(--background-question-answered);
-    color: var(--white-color-500);
-
-    border-radius: 25px;
-    border: 0;
-    padding: .5rem;
-    font-size: 0;
-
-    svg {
-      fill: var(--white-color-500)
-    }
-
-    &:hover {
-      filter: brightness(90%);
-    }
-  }
-}
-
 .likes {
-  font-size: x-small;
+  font-size: .65rem;
   font-weight: 900;
   color:  var(--white-color-200);
   display: flex;
@@ -211,5 +220,11 @@ main {
     circle, path {
       stroke: var(--white-color-200)
     }
+  }
+}
+
+@media (max-width: 800px) {
+  .mainContainer {
+    padding: .3rem;
   }
 }

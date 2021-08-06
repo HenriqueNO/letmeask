@@ -1,9 +1,9 @@
 .roomCode {
-  height: 40px;
+  height: 2.5rem;
   border-radius: 8px;
   overflow: hidden;
 
-  background-color: var(--background-light);
+  background-color: var(--background-200);
   border: 1px solid var(--violet-200);
   cursor: pointer;
 
@@ -19,17 +19,36 @@
   }
 
   p {
-    font-size: small;
+    font-size: .7rem;
     color: var(--white-color-500);
-    padding: 1px 16px 1px 12px;
-    width: 230px;
+    padding: 1px .2rem 1px .2rem;
+    max-width: 14rem;
+    min-width: 3rem;
+    width: auto;
     align-self: center;
     flex: 1;
 
     span {
       display: block;
-      font-size: 14px;
+      font-size: .85rem;
       font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .roomCodeAdmin {
+    position: absolute;
+    bottom: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .roomCode:not(.roomCodeAdmin) {
+    span {
+      display: none;
     }
   }
 }

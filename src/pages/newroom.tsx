@@ -66,6 +66,7 @@ export default function NewRoom() {
                   placeholder="Nome da sala"
                   onChange={event => setNewRoom(event.target.value)}
                   value={newRoom}
+                  maxLength={150}
                 />
                 <Button type="submit">
                   Criar sala

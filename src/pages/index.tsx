@@ -71,7 +71,7 @@ export default function Home() {
                 width={24}
                 height={24}
               />
-              Crie sua sala com o Google
+              Entre para criar salas e ver as criadas
             </button>
           <div className={styles.separator}>ou entre em uma sala</div>
           <form onSubmit={handleJoinRoom}>

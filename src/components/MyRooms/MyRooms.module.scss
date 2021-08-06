@@ -10,6 +10,7 @@
       border-radius: 50px;
       font-size: 0;
       float: left;
+      background: var(--background-500);
 
       &:hover {
         filter: brightness(90%);
@@ -53,7 +54,7 @@
 }
 
 .roomIndex {
-  background-color: var(--background-light);
+  background-color: var(--background-500);
   margin: 0;
   padding: .4rem;
 
@@ -66,12 +67,12 @@
   }
 
   h2 {
-    font-size: medium;
+    font-size: 1rem;
     text-transform: capitalize;
   }
 
   p {
-    font-size: small;
+    font-size: .8rem;
     font-weight: 600;
     color: var(--white-color-300);
   }

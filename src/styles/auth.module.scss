@@ -76,7 +76,7 @@
       height: 50px;
       border-radius: 8px;
       padding: 0 16px;
-      background: var(--background);
+      background: var(--background-200);
       border: 1px solid #a8a8b3;
       color: var(--white-color-300);
     }
@@ -107,7 +107,7 @@
   border-radius: 8px;
   font-weight: 500;
   background: var(--google-button);
-  color: var(--white-color-300);
+  color: #fff;
 
   display: flex;
   justify-content: center;
@@ -177,7 +177,7 @@
 
     aside {
       padding: 4rem 2rem;
-      background-image: linear-gradient(var(--violet-200) 99%, var(--background), );
+      background-image: linear-gradient(var(--violet-200) 99%, var(--background-300), );
       align-items: center;
     }
   }

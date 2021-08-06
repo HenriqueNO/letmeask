@@ -1,3 +1,4 @@
+import { Html } from 'next/document';
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
@@ -8,20 +9,20 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--background);
+    background: var(--background-300);
     color: var(--white-color-500);
   }
 
   body, input, button, textarea {
-    font: 400 16px "Roboto", sans-serif;
+    font: 400 1rem "Roboto", sans-serif;
   }
 
   :root {
-    --background: ${props => props.theme.colors.background};
-    --background-light: ${props => props.theme.colors.background_light};
-    --background-question: ${props => props.theme.colors.background_question};
-    --background-question-highlight: ${props => props.theme.colors.background_question_highlight};
-    --background-question-answered: ${props => props.theme.colors.background_question_answered};
+    --background-100: ${props => props.theme.colors.background_100};
+    --background-200: ${props => props.theme.colors.background_200};
+    --background-300: ${props => props.theme.colors.background_300};
+    --background-400: ${props => props.theme.colors.background_400};
+    --background-500: ${props => props.theme.colors.background_500};
 
     --google-button: ${props => props.theme.colors.google_button};
 
@@ -60,5 +61,11 @@ export default createGlobalStyle`
     --blue-300: ${props => props.theme.colors.blue_300};
     --blue-400: ${props => props.theme.colors.blue_400};
     --blue-500: ${props => props.theme.colors.blue_500};
+  }
+
+  @media (max-width: 500px) {
+    html {
+      font-size: 98%;
+    }
   }
 `

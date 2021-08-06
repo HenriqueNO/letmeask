@@ -10,14 +10,17 @@ import { QuestionFilter } from '../../components/QuestionFilter';
 
 import styles from '../../styles/room.module.scss'
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { RoomSettingsInfo } from '../../components/RoomSettingsInfo';
 
 export default function Room() {
   const { user, signInWithGoogle } = useAuth()
   const [roomId, setRoomId] = useState('')
   const [newQuestion, setNewQuestion] = useState('')
   const [lengthQuestionValue, setLengthQuestionValue] = useState<number>(250)
-  const { title, questions, descendingFilter, crescentFilter} = useRoom(roomId)
-  const {toggleTheme, theme} = useContext(ThemeContext)
+  const { title, questions } = useRoom(roomId)
+  const { toggleTheme, theme } = useContext(ThemeContext)
+
+  console.log(questions)
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.href).values().next().value
@@ -87,6 +90,7 @@ export default function Room() {
             alt="letmeask"
             width={157}
             height={75}
+            objectFit="scale-down"
           />
           <div>
             <button onClick={toggleTheme}>
@@ -102,10 +106,15 @@ export default function Room() {
         </div>
       </header>
 
-      <main>
-        <div className={styles.roomTitle}>
-          <h1>Sala: {title}</h1>
-          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+      <main className={styles.mainContainer}>
+        <div className={styles.mainHeader}>
+          <div className={styles.roomTitle}>
+            <h1>Sala: {title}</h1>
+            {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+          </div>
+          <div className={styles.roomInfo}>
+            <RoomSettingsInfo room={roomId}/>
+          </div>
         </div>
 
         <form onSubmit={handleCreateNewQuestion}>
@@ -134,7 +143,7 @@ export default function Room() {
         </form>
         
         <div className={styles.questionContainer}>
-          <QuestionFilter descendingFilter={descendingFilter} crescentFilter={crescentFilter}/>
+          
           <div className={styles.questionList}>
             {questions.map((question) => {
               return (

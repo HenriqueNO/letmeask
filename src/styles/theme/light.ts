@@ -3,11 +3,11 @@ export default {
   title: 'light',
 
   colors: {
-    background: '#f8f8f8',
-    background_light: '#fff',
-    background_question: '#fefefe',
-    background_question_highlight: '#f4f0ff',
-    background_question_answered: '#dbdcdd',
+    background_100: '#fff',
+    background_200: '#fefefe',
+    background_300: '#f8f8f8',
+    background_400: '#f4f0ff',
+    background_500: '#dbdcdd',
 
     google_button: '#ea4335',
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { database } from '../../services/firebase'
 import styles from './RoomSettings.module.scss'
+import Image from 'next/image'
 
 export function RoomSettings ({roomId}) {
   const [isOpenOverlaySettings, setIsOpenOverlaySettings] = useState(false)
@@ -42,10 +43,17 @@ export function RoomSettings ({roomId}) {
       )
       : (
         <div className={styles.overlay}>
-          <div className={styles.container}>
+          <div className={styles.buttonExitOverlay}>
             <button onClick={() => setIsOpenOverlaySettings(false)}>
-              {'<-'}
+              <Image 
+                src='/images/back-return.svg'
+                alt='Voltar'
+                width={15}
+                height={15}
+              />
             </button>
+          </div>
+          <div className={styles.container}>
             <h1>Configurações da sala</h1>
             <div className={styles.caracterConfigContainer}>
               <div>
@@ -65,6 +73,10 @@ export function RoomSettings ({roomId}) {
                   onKeyUp={(e) => keyUpAndUpgradeDatabase(e.target)}
                 />
                 <span>300</span>
+              </div>
+              <div>
+                <label>Limite de perguntas por usuário:</label>
+                <p>{'3'}</p>
               </div>
             </div>
           </div>
